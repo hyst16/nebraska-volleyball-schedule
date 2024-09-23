@@ -107,7 +107,8 @@ for item in schedule_items:
     })
 
 # Generate HTML file with a compact table, floating logo, and overall/conference records
-with open('nebraska_volleyball_schedule.html', 'w') as file:
+with open('index.html', 'w') as file:
+
     file.write(f'''<html>
 <head>
     <title>Nebraska Volleyball Schedule</title>
@@ -235,4 +236,4 @@ with open('nebraska_volleyball_schedule.html', 'w') as file:
 </body>
 </html>''')
 
-print("Schedule data has been scraped and saved to nebraska_volleyball_schedule.html.")
+print("Schedule data has been scraped and saved to index.html.")
