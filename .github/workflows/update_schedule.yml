@@ -2,8 +2,8 @@ name: Generate Volleyball Schedule
 
 on:
   schedule:
-    - cron: '0 * * * *'  # This cron expression runs the script every hour
-  workflow_dispatch:  # Allows manual triggering of the workflow
+    - cron: '0 * * * *'  # Runs every hour
+  workflow_dispatch:  # Allows manual triggering
 
 jobs:
   build:
@@ -26,14 +26,21 @@ jobs:
       - name: Run the Python script
         run: python new_nebvolleyball_scrape.py
 
-      # Force Git to see changes by updating the file timestamp
+      # Ensure file timestamp is updated
       - name: Touch the index.html to update the timestamp
         run: touch index.html
 
+      # Commit the updated HTML file
       - name: Commit the updated HTML file
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add index.html
           git commit -m "Auto-update index.html via GitHub Actions" || echo "No changes to commit"
-          git push
+
+      # Push changes using the personal access token (PAT)
+      - name: Push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_TOKEN }}
+        run: |
+          git push https://x-access-token:${{ secrets.ACTIONS_DEPLOY_TOKEN }}@github.com/${{ github.repository }}.git
