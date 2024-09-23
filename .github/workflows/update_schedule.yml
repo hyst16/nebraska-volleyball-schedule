@@ -26,10 +26,14 @@ jobs:
       - name: Run the Python script
         run: python new_nebvolleyball_scrape.py
 
+      # Force Git to see changes by updating the file timestamp
+      - name: Touch the index.html to update the timestamp
+        run: touch index.html
+
       - name: Commit the updated HTML file
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
           git add index.html
-          git commit -m "Auto-update index.html via GitHub Actions"
+          git commit -m "Auto-update index.html via GitHub Actions" || echo "No changes to commit"
           git push
