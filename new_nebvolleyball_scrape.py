@@ -115,7 +115,7 @@ with open('index.html', 'w') as file:
     <style>
         body {{
             font-family: Arial, sans-serif;
-            background: url('Arena.jpg') no-repeat center center fixed; /* Background image */
+            background: url('Arena.jpg') no-repeat center center fixed;
             background-size: cover;
             padding: 20px;
             color: white;
@@ -133,40 +133,40 @@ with open('index.html', 'w') as file:
         }}
         .left-section img {{
             width: 80%;
-            margin-bottom: 5px; /* Tight gap between logo and "VOLLEYBALL" */
-            filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.7)); /* Drop shadow */
+            margin-bottom: 5px;
+            filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.9)); /* Heavier and darker drop shadow */
         }}
         .ranking {{
             font-size: 36px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Drop shadow */
-            margin-bottom: 5px; /* Tight gap between ranking and Overall record */
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9); /* Heavier and darker drop shadow for ranking */
+            margin-bottom: 5px;
         }}
         .left-section h1 {{
-            font-size: 42px; /* Increased by 6 points */
-            margin-bottom: 10px; /* Little gap after "VOLLEYBALL" */
+            font-size: 42px;
+            margin-bottom: 10px;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Drop shadow for text */
+            text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9); /* Heavier and darker drop shadow for VOLLEYBALL */
             text-align: center;
         }}
         .left-section h2, .left-section h3 {{
             font-size: 28px;
-            margin-bottom: 5px; /* Tight gap between Overall and Conf records */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Drop shadow for text */
+            margin-bottom: 5px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9); /* Heavier and darker drop shadow for overall and conf */
         }}
         table {{
             width: 60%;
             margin: auto;
             border-collapse: collapse;
-            background-color: rgba(255, 255, 255, 0.9); /* Less transparent white background */
+            background-color: rgba(255, 255, 255, 0.9);
             border: 1px solid #ddd;
             text-align: center;
             color: black;
         }}
         th, td {{
-            padding: 2px; /* Minimal padding for compact rows */
+            padding: 2px;
             border: 1px solid #ddd;
-            line-height: 1.0; /* Tight line height for condensing */
+            line-height: 1.0;
         }}
         th {{
             background-color: rgba(255, 255, 255, 0.7);
@@ -194,7 +194,9 @@ with open('index.html', 'w') as file:
 <body>
     <div class="left-section">
         <img src="Logos/nebraska.png" alt="Nebraska Logo">
-        <h1>VOLLEYBALL</h1>''')
+        <h1>VOLLEYBALL</h1>
+''')
+
 
     # Display the ranking with "Current Ranking:" if available
     if last_game_ranking:
