@@ -107,9 +107,8 @@ for item in schedule_items:
     })
 
 # Generate HTML file with a compact table, floating logo, and overall/conference records
-with open('index.html', 'w') as file:
-
-   file.write(f'''<html>
+with open('nebraska_volleyball_schedule.html', 'w') as file:
+    file.write(f'''<html>
 <head>
     <title>Nebraska Volleyball Schedule</title>
     <style>
@@ -201,7 +200,6 @@ with open('index.html', 'w') as file:
         <div class="text-box">
             <h1>VOLLEYBALL</h1>''')
 
-
     # Display the ranking with "Current Ranking:" if available
     if last_game_ranking:
         file.write(f'<div class="ranking">Current Ranking: #{last_game_ranking.lstrip("#")}</div>')
@@ -210,6 +208,7 @@ with open('index.html', 'w') as file:
     file.write(f'''
         <h2>Overall: {overall_record}</h2>
         <h3>Conf: {conference_record}</h3>
+        </div>
     </div>
     <table>
         <tr>
