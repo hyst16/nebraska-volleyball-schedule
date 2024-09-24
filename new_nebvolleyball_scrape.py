@@ -109,7 +109,7 @@ for item in schedule_items:
 # Generate HTML file with a compact table, floating logo, and overall/conference records
 with open('index.html', 'w') as file:
 
-    file.write(f'''<html>
+   file.write(f'''<html>
 <head>
     <title>Nebraska Volleyball Schedule</title>
     <style>
@@ -136,6 +136,13 @@ with open('index.html', 'w') as file:
             margin-bottom: 5px;
             filter: drop-shadow(8px 8px 12px rgba(0, 0, 0, 0.9)); /* Heavier and darker drop shadow */
         }}
+        .text-box {{
+            background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+            padding: 10px;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 10px;
+        }}
         .ranking {{
             font-size: 36px;
             color: white;
@@ -144,14 +151,11 @@ with open('index.html', 'w') as file:
         }}
         .left-section h1 {{
             font-size: 42px;
-            margin-bottom: 10px;
             color: white;
             text-shadow: 6px 6px 10px rgba(0, 0, 0, 0.9); /* Heavier and darker drop shadow for VOLLEYBALL */
-            text-align: center;
         }}
         .left-section h2, .left-section h3 {{
             font-size: 28px;
-            margin-bottom: 5px;
             text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.9); /* Heavier and darker drop shadow for overall and conf */
         }}
         table {{
@@ -194,8 +198,8 @@ with open('index.html', 'w') as file:
 <body>
     <div class="left-section">
         <img src="Logos/nebraska.png" alt="Nebraska Logo">
-        <h1>VOLLEYBALL</h1>
-''')
+        <div class="text-box">
+            <h1>VOLLEYBALL</h1>''')
 
 
     # Display the ranking with "Current Ranking:" if available
