@@ -60,8 +60,9 @@ for item in schedule_items:
     result = item.find('div', class_='schedule-event-item-result__label')
     if result:
         # If a result exists (game played), get the outcome (W or L) and score
-        outcome = result.find('span').text.strip()  # Extract W or L
-        score = result.text.replace(outcome, '').strip()  # Remove the outcome from the score
+        outcome = result.find('span').text.strip()  # Extract "W" or "L"
+        score = result.text.strip()  # Get the entire text
+        score = score.replace(outcome, '').replace('in', '').replace('oss', '').strip()  # Remove "W" or "L" and any extra words like "in" or "oss"
     else:
         # If game hasn't been played yet, extract time only
         result = item.find('div', class_='schedule-event-item-result')
@@ -107,7 +108,7 @@ for item in schedule_items:
     })
 
 # Generate HTML file with a compact table, floating logo, and overall/conference records
-with open('nebraska_volleyball_schedule.html', 'w') as file:
+with open('index.html', 'w') as file:
     file.write(f'''<html>
 <head>
     <title>Nebraska Volleyball Schedule</title>
