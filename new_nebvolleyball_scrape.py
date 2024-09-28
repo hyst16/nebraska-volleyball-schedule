@@ -60,8 +60,8 @@ for item in schedule_items:
     result = item.find('div', class_='schedule-event-item-result__label')
     if result:
         # If a result exists (game played), get the outcome (W or L) and score
-        outcome = result.find('span').text
-        score = result.text.replace(outcome, '').strip()
+        outcome = result.find('span').text.strip()  # Extract W or L
+        score = result.text.replace(outcome, '').strip()  # Remove the outcome from the score
     else:
         # If game hasn't been played yet, extract time only
         result = item.find('div', class_='schedule-event-item-result')
